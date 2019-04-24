@@ -38,6 +38,6 @@ async def on_message(message):
 		await client.send_message(message.channel, random.choice(["Uh.. I t-think that would be a yes.", "I-I agree with that..", "Oh.. M-My answer would be a maybe. I-I'm not too sure..", "I-I approve with it..", "Y-Yes..", "I d-don't approve of it..", "No.. T-That's a no.", "N-No..", "I-I don't think so..", "My answer is a no.."]))
 	elif message.content.startswith("ck!chino"):
 		await client.send_file(message.channel, random.choice(["chino1, chino2"]))
-		chino1 = "https://cdn.myanimelist.net/images/characters/14/287775.jpg"
-		chino2 = "https://static.zerochan.net/Kafuu.Chino.full.1953685.jpg"
+		"chino1" = "https://cdn.myanimelist.net/images/characters/14/287775.jpg"
+		"chino2" = "https://static.zerochan.net/Kafuu.Chino.full.1953685.jpg"
 client.run(str(os.environ.get("BOT_TOKEN")))
