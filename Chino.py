@@ -5,9 +5,22 @@ from discord.ext import commands
 import asyncio
 import time
 import random
+from commands import cmd_cuddle, cmd_help, cmd_kiss
 
 Client = discord.Client()
-client = commands.Bot(command_prefix = "ck!")
+
+commands = {
+
+	"kiss": cmd_kiss,
+	"cuddle": cmd_cuddle,
+	"help": cmd_help,
+	"headpat": cmd_headpat,
+	"abc": cmd_def,
+	"ask": cmd_ask,
+	"chino": cmd_chino,
+
+}
+
 
 @client.event
 async def on_ready():
@@ -18,19 +31,25 @@ async def on_ready():
 	print(client.user.id)
 	await client.change_presence(game=discord.Game(name="Making Coffee! x3 (ck!)"))
 
+	
+	
+@client.event
+async def on_message(message):
+    if message.content.startswith(STATICS.PREFIX):
+        invoke = message.content[len(STATICS.PREFIX):].split(" ")[0]
+        args = message.content.split(" ")[1:]
+        if commands.__contains__(invoke):
+            await commands.get(invoke).ex(args, message, client, invoke)
+        else:
+	    await client.send_message(message.channel, embed=discord.Embed(color=discord.Color.red(), description=("The command `%s` is not valid!" % invoke)))
+
 @client.event
 async def on_message(message):
 	if message.content.startswith("a"):
 		await client.send_message(message.channel, "ur all gay")
 @client.event
 async def on_message(message):
-	if message.content.startswith("ck!cuddle"):
-		await client.send_message(message.channel, random.choice(["Stop..", "T-That.. feels good...", "Why do you.. do this?", "Umm.. Why don't y-you cuddle C-Cocoa-san?", "I-I'm sorry.. I don't want that right n-now....", "Oh.. T-That surprised me...", "W-Why me..? I'm not much...", "I liked that.. Can you p-please do more??", "*blushes* I love it when y-you c-cuddle me..", "J-Just... no... sorry."]))
-	elif message.content.startswith("ck!kiss"):
-		await client.send_message(message.channel, random.choice(["I d-don't think you're supposed t-to do that...", "What, umm...", "You c-can't.. do that...", "C-Can you not do that.. Thanks.", "I'm very uncomfortable... ", "W-Why.. Why did you p-pick me for that?! You could have asked Cocoa-san..", "What... umm. thanks? You're embarrasing me.. *blushes*", "Oh.. Y-You love me that much?", "I.. I enjoyed that.. *blushes*", "I-I love that...... <3", "Please stop...", "I don't want you to do that!!", "C-Can you please stop?!", "W-Why..?"]))
-	elif message.content.startswith("ck!help"):
-		await client.send_message(message.channel, "Chino Kafuu bot\n\nPrefix: ck!\n\nCommands:\n\nck!cuddle - Cuddle Chino-Chan!\nck!kiss - Kiss Chino-Chan >-<\nck!headpat - Give Chino-Chan a headpat!\nck!ask - Ask Chino-Chan something!\nck!help - Shows this message.")		
-	elif message.content.startswith("ck!headpat"):
+	if message.content.startswith("ck!headpat"):
 		await client.send_message(message.channel, random.choice(["Oh...", "Aww..", "I l-love it...", "P-Please continue doing that.", "T-Thanks.. It feels great..."]))
 	elif message.content.startswith("abc"):
 		await client.send_message(message.channel, "def")
