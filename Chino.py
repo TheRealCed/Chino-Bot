@@ -42,12 +42,7 @@ async def on_message(message):
         else:
             await client.send_message(message.channel, embed=discord.Embed(color=discord.Color.red(), description=("The command `%s` is not valid!" % invoke)))
 
-@client.event
-async def on_message(message):
-	if message.content.startswith("a"):
-		await client.send_message(message.channel, "ur all gay")
-		
-		
+
 @client.event
 async def on_message(message):
 	if message.content.startswith("ck!headpat"):
