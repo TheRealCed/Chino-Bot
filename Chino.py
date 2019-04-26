@@ -1,11 +1,11 @@
 import discord
 import os
+import STATICS
 from discord.ext.commands import Bot
 from discord.ext import commands
 import asyncio
 import time
 import random
-import STATICS
 from commands import cmd_cuddle, cmd_help, cmd_kiss
 
 
