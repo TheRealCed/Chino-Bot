@@ -3,7 +3,7 @@ import os
 import json
 import STATICS
 from discord import Game, Embed
-from commands import cmd_kiss, cmd_cuddle, cmd_help,
+from commands import cmd_kiss, cmd_cuddle, cmd_help
 
 
 client = discord.Client()
