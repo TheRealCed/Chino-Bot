@@ -14,10 +14,6 @@ commands = {
 	"kiss": cmd_kiss,
 	"cuddle": cmd_cuddle,
 	"help": cmd_help,
-	"headpat": cmd_headpat,
-	"abc": cmd_def,
-	"ask": cmd_ask,
-	"chino": cmd_chino,
 
 }
 
