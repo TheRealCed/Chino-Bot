@@ -7,7 +7,9 @@ import time
 import random
 from commands import cmd_cuddle, cmd_help, cmd_kiss
 
-Client = discord.Client()
+
+client = discord.Client()
+
 
 commands = {
 
