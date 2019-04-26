@@ -1,10 +1,9 @@
 import discord
 import os
+import json
 import STATICS
-import asyncio
-import time
-import random
-from commands import cmd_cuddle, cmd_help, cmd_kiss
+from discord import Game, Embed
+from commands import cmd_kiss, cmd_cuddle, cmd_help,
 
 
 client = discord.Client()
